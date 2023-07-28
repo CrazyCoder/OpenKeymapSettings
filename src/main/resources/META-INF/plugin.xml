@@ -1,0 +1,45 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.jetbrains.support.OpenKeymapSettings</id>
+    
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>Open Keymap Settings</name>
+    
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="serge@jetbrains.com" url="https://support.jetbrains.com">Serge Baranov</vendor>
+    
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+    Provides actions to open IDE Keymap Settings. Can be assigned to any shortcut.
+    <br><br>
+    Look for "Open Keymap Panel" and "Open Keymap Settings" actions in Settings | Keymap to change the shortcut.
+    <br><br>
+    The default shortcut is Ctrl+Alt+Shift+; to open Keymap as a standalone panel and Ctrl+Alt+Shift+" to open the full
+    Settings dialog with Keymap navigated in the tree on the left.
+  ]]></description>
+    
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+    
+    </extensions>
+    <actions>
+        <action id="OpenKeymapPanel" class="com.jetbrains.support.openkeymapsettings.OpenKeymapPanel"
+                text="Open Keymap Panel">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt SEMICOLON"/>
+        </action>
+        
+        <action id="OpenKeymapSettings" class="com.jetbrains.support.openkeymapsettings.OpenKeymapSettings"
+                text="Open Keymap Settings">
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt QUOTE"/>
+        </action>
+    </actions>
+</idea-plugin>
